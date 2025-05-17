@@ -17,4 +17,4 @@ RUN DATABASE_URL=$DATABASE_URL npx prisma migrate dev
 RUN npx prisma generate
 RUN npx run build
 
-CMD [ "npm" , "start" ]
+CMD [ "npm" , "run", "dev:docker"  ]
