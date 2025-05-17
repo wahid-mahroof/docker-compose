@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+postgres:
+image: postgres
+ports: -5432:5432
+
+enviroment:
+POSTGRES_USER: your_username
+POSTGRES_PASSWORD: your_password
+POSTGRES_DB: your_dbname
+
+user_app:
+build:
+network: host
+context: ./
+dockerfile: Dockerfile
+
+port: -3000:3000
+depends_on: -postgres
+
+DATABASE_URL: postgresql://neondb_owner:npg_uwj2QGfi3oyF@ep-hidden-block-a42me0s1-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
